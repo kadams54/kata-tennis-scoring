@@ -11,5 +11,6 @@ class Player(Enum):
     ONE = 'Player 1'
     TWO = 'Player 2'
 
+
 def start():
     return {Player.ONE: Score.LOVE, Player.TWO: Score.LOVE, 'winner': None}
