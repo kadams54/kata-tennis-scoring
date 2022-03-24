@@ -6,5 +6,10 @@ class Score(Enum):
     THIRTY = 30
     FOURTY = 40
 
+
+class Player(Enum):
+    ONE = 'Player 1'
+    TWO = 'Player 2'
+
 def start():
-    return {'player1': Score.LOVE, 'player2': Score.LOVE}
+    return {Player.ONE: Score.LOVE, Player.TWO: Score.LOVE, 'winner': None}
