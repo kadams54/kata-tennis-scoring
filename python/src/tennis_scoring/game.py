@@ -11,4 +11,14 @@ class Score(Enum):
     FOURTY = 40
 
 def start():
-    return {Player.ONE: Score.LOVE, Player.TWO: Score.LOVE, 'winner': None}
+    player1_iterator = iter(Score)
+    player2_iterator = iter(Score)
+    return {
+        Player.ONE: (next(player1_iterator), player1_iterator),
+        Player.TWO: (next(player2_iterator), player2_iterator),
+        'winner': None
+    }
+
+def score(game, player):
+    (_, current_score_iter) = game[player]
+    return next(current_score_iter)
