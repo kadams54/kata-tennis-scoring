@@ -1,14 +1,13 @@
 from tennis_scoring.game import (Player, Score, score, start)
 
 def test_start():
-    assert start() == {
-        Player.ONE: (Score.LOVE, iter(Score)),
-        Player.TWO: (Score.LOVE, iter(Score)),
-        'winner': None
-    }
+    game = start()
+    assert game[Player.ONE] == Score.LOVE
+    assert game[Player.TWO] == Score.LOVE
+    assert game['winner'] == None
 
 def test_score():
     game = start()
-    (old_score, _) = game[Player.ONE]
-    new_score = score(game, Player.ONE)
-    assert new_score > old_score
+    current_score = game[Player.ONE]
+    new_score = score(current_score)
+    assert new_score.value > current_score.value
